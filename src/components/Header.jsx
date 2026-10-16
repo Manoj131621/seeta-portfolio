@@ -29,7 +29,7 @@ export default function Header() {
     <header className="header">
       <div className="container header-container">
         <a href="#home" className="logo" onClick={closeMenu}>
-          Seeta<span className="logo-dot">.</span>
+          Seeta Manojkumar
         </a>
 
         {/* Desktop Navigation */}
