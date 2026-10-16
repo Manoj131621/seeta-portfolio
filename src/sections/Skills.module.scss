@@ -1,0 +1,65 @@
+@use '../styles/variables' as *;
+
+.skillsSection {
+  padding: 5rem 0;
+
+  .skillsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+
+    @media (min-width: 540px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  .skillCard {
+    background: $card-bg;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+
+    .iconWrapper {
+      color: $blue;
+      margin-bottom: 1rem;
+      background: $light-blue;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    h3 {
+      color: $navy;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    p {
+      color: $text-muted;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    &:hover {
+      border-color: $blue;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
+
+      .iconWrapper {
+        transform: scale(1.08);
+      }
+    }
+  }
+}

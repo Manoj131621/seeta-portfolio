@@ -1,0 +1,152 @@
+@use '../styles/variables' as *;
+
+.experienceSection {
+  padding: 5rem 0;
+  background-color: #ffffff;
+
+  .sectionCategory {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: $text-muted;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: $navy;
+    margin-bottom: 0.5rem;
+
+    span {
+      color: $blue;
+    }
+  }
+
+  .sectionSubtitle {
+    color: $text-muted;
+    font-size: 1rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .timeline {
+    position: relative;
+    border-left: 2px solid #e0e7ff; // Light blue vertical line
+    margin-left: 1rem;
+    padding-left: 2rem;
+
+    @media (max-width: 600px) {
+      margin-left: 0.5rem;
+      padding-left: 1.25rem;
+    }
+
+    .timelineItem {
+      position: relative;
+      margin-bottom: 2.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .markerWrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+
+        .timelineMarker {
+          position: absolute;
+          left: -2.35rem; // Centers precisely on vertical line
+          top: 0.25rem;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: $blue;
+          box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $light-blue;
+
+          @media (max-width: 600px) {
+            left: -1.6rem;
+          }
+        }
+
+        .timeLabel {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: $text-muted;
+        }
+      }
+
+      .timelineCard {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 1.75rem 2rem;
+        transition: all 0.3s ease;
+
+        @media (max-width: 600px) {
+          padding: 1.25rem 1.25rem;
+        }
+
+        &:hover {
+          border-color: #cbd5e1;
+          box-shadow: 0 8px 24px rgba(16, 42, 99, 0.05);
+        }
+
+        .cardHeader {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 1rem;
+          margin-bottom: 1.25rem;
+
+          @media (max-width: 600px) {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 0.5rem;
+          }
+
+          .company {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: $navy;
+            margin-bottom: 0.25rem;
+          }
+
+          .role {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: $text-muted;
+          }
+
+          .badge {
+            background-color: #eff6ff;
+            color: $blue;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            white-space: nowrap;
+          }
+        }
+
+        .detailsList {
+          list-style-type: disc;
+          padding-left: 1.25rem;
+
+          li {
+            color: $text-muted;
+            font-size: 0.925rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,166 @@
+@use "sass:color";
+@use '../styles/variables' as *;
+
+.contactSection {
+  padding: 5rem 0;
+
+  .contactGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 900px) {
+      grid-template-columns: 1fr 1.5fr;
+    }
+  }
+
+  .contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    .infoCard {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: $card-bg;
+      padding: 1.25rem;
+      border-radius: 10px;
+      border: 1px solid $border-color;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: $blue;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(37, 99, 235, 0.06);
+      }
+
+      .iconBox {
+        width: 44px;
+        height: 44px;
+        background: $light-blue;
+        color: $blue;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .label {
+        font-size: 0.8rem;
+        color: $text-muted;
+        display: block;
+        margin-bottom: 0.15rem;
+      }
+
+      a,
+      p {
+        color: $navy;
+        font-weight: 600;
+        font-size: 0.95rem;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+
+    .socialGroup {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+
+      a {
+        color: $text-main;
+        background: $card-bg;
+        border: 1px solid $border-color;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: $light-blue;
+          color: $blue;
+          border-color: $blue;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    .formGroup {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+
+      label {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: $navy;
+      }
+
+      input,
+      textarea {
+        padding: 0.75rem;
+        border: 1px solid $border-color;
+        border-radius: 6px;
+        outline: none;
+        font-family: inherit;
+        font-size: 0.95rem;
+        transition: $transition;
+
+        &:focus {
+          border-color: $blue;
+          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+      }
+    }
+
+    .btnSend {
+      // Base styles for your button
+      background-color: $blue;
+      color: #ffffff;
+      font-weight: 600;
+      padding: 0.85rem 1.75rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+
+      // Professional Hover state when enabled
+      &:hover:not(:disabled) {
+        background-color: darken($blue, 10%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+      }
+
+      // Professional Disabled state (faded, grayed out, not-allowed cursor)
+      &:disabled {
+        background-color: #e5e7eb; // Soft light gray background
+        color: #9ca3af; // Muted gray text
+        cursor: not-allowed; // Shows the circle-slash pointer
+        transform: none;
+        box-shadow: none;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.errorText {
+  color: #ef4444; // Red warning color
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+  display: block;
+}

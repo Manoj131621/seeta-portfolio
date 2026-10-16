@@ -1,0 +1,146 @@
+@use "sass:color";
+@use '../styles/variables' as *;
+
+.projectsSection {
+  padding: 5rem 0;
+  background-color: $bg-white;
+
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .projectCard {
+    background: $bg-white;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: $transition;
+
+    .projectImage {
+      width: 100%;
+      height: 200px;
+      background-color: $light-blue;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: $transition;
+      }
+    }
+
+    .projectBody {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      h3 {
+        color: $navy;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
+
+      p {
+        color: $text-muted;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+        flex-grow: 1;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+
+        .tag {
+          background-color: $light-blue;
+          color: $blue;
+          font-size: 0.75rem;
+          font-weight: 600;
+          padding: 0.25rem 0.75rem;
+          border-radius: 20px;
+        }
+      }
+
+      .projectLink {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: $blue;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: $transition;
+
+        &:hover {
+          color: color.adjust($blue, $lightness: -15%);
+        }
+      }
+    }
+
+    &:hover {
+      border-color: $blue;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+
+      .projectImage img {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .moreProjectsCard {
+    background: $card-bg;
+    border: 2px dashed $border-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+
+    .plusIconWrapper {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: $light-blue;
+      color: $blue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: $navy;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $text-muted;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .viewAllLink {
+      color: $blue;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
