@@ -75,6 +75,9 @@
 // ==========================================
 // 2. HEADER COMPONENT
 // ==========================================
+// ==========================================
+// 2. HEADER COMPONENT (WITH RESPONSIVE DRAWER)
+// ==========================================
 .header {
   position: sticky;
   top: 0;
@@ -90,16 +93,33 @@
   }
 
   .logo {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: $navy;
 
-    @media (min-width: 768px) {
-      font-size: 1.5rem;
+    .logo-dot {
+      color: $blue;
     }
   }
 
-  .nav {
+  // Hide mobile button on larger screens
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: $navy;
+    cursor: pointer;
+    padding: 0.25rem;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  // Desktop Navigation
+  .desktop-nav {
     display: none;
 
     @media (min-width: 768px) {
@@ -122,23 +142,116 @@
     }
   }
 
-  .btn-resume {
-    background-color: $navy;
-    color: $bg-white;
-    padding: 0.45rem 1rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: $transition;
+  // Desktop Resume Button
+  .desktop-resume {
+    display: none;
 
     @media (min-width: 768px) {
+      display: inline-flex;
+      align-items: center;
+      background-color: $navy;
+      color: $bg-white;
       padding: 0.5rem 1.25rem;
+      border-radius: 6px;
       font-size: 1rem;
+      font-weight: 600;
+      transition: $transition;
+
+      &:hover {
+        background-color: color.adjust($navy, $lightness: 10%);
+      }
+    }
+  }
+
+  // ------------------------------------------
+  // Mobile Card Drawer (Matches Screenshot)
+  // ------------------------------------------
+  .mobile-overlay {
+    position: fixed;
+    top: 60px; // Just below the header bar
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(16, 42, 99, 0.25); // Subtle dark blue backdrop
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 999;
+    animation: fadeIn 0.2s ease-out;
+
+    @media (min-width: 768px) {
+      display: none; // Auto-hide drawer on desktop
+    }
+  }
+
+  .mobile-card-drawer {
+    background-color: $bg-white;
+    width: 100%;
+    max-width: 360px;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 1.75rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+
+      a {
+        color: #334155; // Muted dark blue/gray
+        font-size: 1.1rem;
+        font-weight: 700;
+        transition: $transition;
+
+        &:hover, &:active {
+          color: $blue;
+        }
+      }
     }
 
-    &:hover {
-      background-color: color.adjust($navy, $lightness: 10%);
+    .mobile-btn-resume {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: #0b2253; // Solid dark navy
+      color: #ffffff;
+      padding: 0.85rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+      transition: $transition;
+
+      &:active {
+        transform: scale(0.98);
+        background-color: $navy;
+      }
     }
+  }
+}
+
+// Drawer animation keyframes
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { 
+    opacity: 0;
+    transform: translateY(-12px) scale(0.97);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
